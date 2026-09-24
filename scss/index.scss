@@ -1,0 +1,125 @@
+.topbar {
+  height: 42px;
+  line-height: 42px;
+  font-size: 15px;
+  text-align: center;
+  background-color: #000;
+  color: #fff; 
+}
+
+.bg {
+  position: absolute;
+  // 讓背景直接在標準流之下，後續元素就不用一個個定位
+  z-index: -1;
+  width: 100%;
+  height: 1200px;
+  background: linear-gradient(189.16deg, rgba(57, 15, 199) 13.57%, rgba(40, 35, 77) 98.38%);
+}
+
+// 版心
+.w {
+  // 要縮放，不能單純寫 width
+  max-width: 1234px;
+  margin: 0 auto;
+}
+
+// 導航欄響應式
+// 斷點列表
+$breakpoints: (
+  'nav-6col': 1024px,  
+  'nav-5col': 900px,  
+  'nav-4col': 768px,  
+  'nav-hidden': 550px,  
+);
+
+@mixin respond-to($breakname) {
+  $bp: map-get($breakpoints, $breakname);
+  @media (max-width: $bp) {
+    @content;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  // 左右30px是為了響應式縮到最小時，不要讓logo直接貼邊
+  padding: 60px 30px 0;
+  .logo img {
+    width: 44px;
+    height: 44px;
+    margin: 0;
+  }
+  @include respond-to('nav-hidden') {
+    padding-top: 20px;
+  }
+}
+
+.nav {
+  display: grid;
+  // 後3個只有圖標，寬度不同，所以要讓它 auto
+  grid-template-columns: repeat(7, auto);
+  gap: 26px;
+  @include respond-to('nav-6col') {
+    grid-template-columns: repeat(6, auto);
+    a:nth-child(4) { 
+      display: none; 
+    }
+  }
+  @include respond-to('nav-5col') {
+    grid-template-columns: repeat(5, auto);
+    a:nth-child(3) { 
+      display: none; 
+    }
+  }
+  @include respond-to('nav-4col') {
+    grid-template-columns: repeat(4, auto);
+    a:nth-child(2) { 
+      display: none; 
+    }
+  }
+  @include respond-to('nav-hidden') {
+    display: none;
+  }
+}
+
+.nav button {
+  display: flex;
+  padding: 10px 20px;
+  background: none;
+  border: 0;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  &:hover{
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: rgba(31, 47, 71, 0.25) 0px 20px 40px,
+    rgba(0, 0, 0, 0.1) 0px 1px 5px,
+    rgba(255, 255, 255, 0.4) 0px 0px 0px 0.5px inset,;
+  }
+  img {
+    width: 24px;
+    height: 24px;
+  }
+  p {
+    font-size: 15px;
+    color: #fff;
+    padding-left: 10px;
+  }
+}
+
+.mobile-nav {
+  // 隱藏盒子
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  background: rgba(15, 14, 71, 0.3);
+  box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 0.5px inset;
+  backdrop-filter: blur(40px);
+  border-radius: 50%;
+  @include respond-to('nav-hidden') {
+    display: flex;
+  }
+}
+
