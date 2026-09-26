@@ -222,3 +222,99 @@ $breakpoints: (
   }
 }
 
+// 課程卡片
+.course-card {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 40px;
+  max-width: 1254px;
+  margin: 40px auto 0px;
+  padding: 0 40px;
+  .item {
+    height: 360px;
+    background: linear-gradient(209.21deg, rgb(73, 79, 254) 13.57%, rgb(15, 19, 36) 98.38%);
+    border-radius: 20px;
+    padding: 20px;
+    transition: 0.8s cubic-bezier(0.075, 0.82, 0.165, 1);
+    cursor: pointer;
+    h3 {
+      color: #fff;
+      font-size: 24px;
+      line-height: 140%;
+      text-align: center;
+      font-weight: 600;
+      margin: 10px 0;
+      // height: 100px; 可以統一高度，看覺得哪種好看
+      // 多行顯示省略號
+      display: -webkit-box;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+    }
+    p {
+      font-size: 15px;
+      line-height: 18px;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.7);
+    }
+    .star {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 32px;
+      height: 32px;
+      margin: 0 auto;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 50%;
+      margin-top: 10px;
+    }
+  }
+  .item:hover {
+    transform: scale(1.1);
+    box-shadow: rgba(15, 19, 36, 0.3) 0px 20px 40px, rgba(0, 0, 0, 0.05) 0px 1px 3px;
+    figure>img {
+      transform: scale(0.9);
+    }
+  }
+  .item2 {
+    background: linear-gradient(209.21deg, rgb(50, 150, 255) 13.57%, rgb(68, 23, 219) 98.38%);
+  }
+  .item3 {
+    background: linear-gradient(209.21deg, rgb(8, 86, 142) 13.57%, rgb(0, 24, 85) 98.38%);
+  }
+  .item4 {
+    background: linear-gradient(209.21deg, rgb(242, 136, 133) 13.57%, rgb(233, 79, 102) 98.38%);
+  }
+}
+
+figure {
+  position: relative;
+  height: 150px;
+  text-align: center;
+  .icon1,.icon2 {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  .icon2 {
+    top: 42px;
+  }
+  >img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    transition: 0.8s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+}
+
+@media (max-width: 768px) {
+  .course-card {
+    gap: 20px;
+    padding: 0 20px;
+  }
+}
