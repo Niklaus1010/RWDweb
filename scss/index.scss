@@ -21,6 +21,7 @@
   // 要縮放，不能單純寫 width
   max-width: 1234px;
   margin: 0 auto;
+  padding: 0 30px;
 }
 
 // 導航欄響應式
@@ -43,7 +44,7 @@ $breakpoints: (
   display: flex;
   justify-content: space-between;
   // 左右30px是為了響應式縮到最小時，不要讓logo直接貼邊
-  padding: 60px 30px 0;
+  padding-top: 60px;
   .logo img {
     width: 44px;
     height: 44px;
@@ -120,6 +121,104 @@ $breakpoints: (
   border-radius: 50%;
   @include respond-to('nav-hidden') {
     display: flex;
+  }
+}
+
+// 課程
+.course {
+  display: grid;
+  grid-template-columns: 380px auto;
+  align-items: end;
+  gap: 80px;
+  margin-top: 60px;
+}
+
+.course-l {
+  color: #fff;
+  .time {
+    font-size: 15px;
+    line-height: 18px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  h2 {
+    font-size: 40px;
+    line-height: 48px;
+    margin: 20px 0;
+  }
+  p {
+    font-size: 17px;
+    line-height: 24px;
+    color: rgba(255, 255, 255, 0.7);
+  }
+}
+
+.course-r {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.icon ul {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 20px;
+  img {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+.search {
+  position: relative;
+  img {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    width: 24px;
+    height: 24px;
+  }
+  input {
+    width: 204px;
+    height: 44px;
+    padding: 10px 42px;
+    border-radius: 30px;
+    background: linear-gradient(rgba(99, 106, 150, 0.8) 0%, rgba(182, 186, 214, 0.6) 100%);
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 20px 40px, rgba(255, 255, 255, 0.3) 0px 0px 0px 0.5px inset;
+    color: #fff;
+    &:focus {
+      background: linear-gradient(rgba(24, 32, 79, 0.4) 0%, rgba(24, 32, 79, 0.25) 100%);
+      box-shadow: rgba(47, 184, 255, 0.3) 0px 10px 40px, rgb(47, 184, 255) 0px 0px 0px 1px inset;
+    }
+  }
+}
+
+@media (max-width: 1280px) {
+  .course {
+    grid-template-columns: 1fr;
+  }
+  // 縮放文字會變，所以給 max-width
+  .course-l {
+    max-width: 380px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .course-l {
+    max-width: 380px;
+    margin: auto;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .course-r {
+    display: grid;
+    // 對網格
+    justify-content: center;
+    // 對元素
+    justify-items: center;
+    gap: 20px;
   }
 }
 
