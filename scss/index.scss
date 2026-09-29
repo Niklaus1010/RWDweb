@@ -318,3 +318,138 @@ figure {
     padding: 0 20px;
   }
 }
+
+body {
+  height: 5000px;
+}
+
+// 故事卡片
+.story-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 20px;
+  gap: 20px;
+}
+
+.story-l {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.story-r {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  .pic {
+    height: 240px;
+    background: rgb(0, 0, 0);
+    border-radius: 20px;
+    overflow: hidden;
+    img {
+      max-height: 240px;
+    }
+  }
+  // 不能空格，這是同一元素擁有兩個class的用法
+  // 有空格會變成在top裡，有後代元素擁有toggle這個class
+  .top.toggle {
+    display: none;
+  }
+}
+
+
+.story-l>div,
+.story-r>div {
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 0px 0.5px inset;
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+}
+
+.story-card .top {
+  display: grid;
+  grid-template-columns: 42px auto;
+  gap: 20px;
+  img {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+  }
+  .name {
+    font-size: 20px;
+    font-weight: 500;
+  }
+  .job {
+    font-size: 13px;
+  }
+} 
+
+.story-card .middle {
+  height: 240px;
+  background: rgb(165, 206, 255);
+  border-radius: 20px;
+  margin: 20px 0;
+  text-align: center;
+  img {
+    max-height: 240px;
+  }
+}
+
+.story-card .desc {
+  font-size: 13px;
+  line-height: 130%;
+  color: rgba(0, 0, 0, 0.7);
+  margin: 5px 0;
+}
+
+.story-card button {
+  background: linear-gradient(rgba(24, 32, 79, 0.4) 0%, rgba(24, 32, 79, 0.4) 100%);
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 20px 40px, rgba(0, 0, 0, 0.2) 0px 0px 0px 0.5px inset;
+  border-radius: 30px;
+  text-transform: uppercase;
+  border: 0;
+  margin-top: 20px;
+  font-size: 13px;
+  color: #fff;
+  padding: 8px 15px;
+}
+
+.story-r-top,
+.story-r-bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-content: start;
+  gap: 20px;
+}
+
+// 可能設1280px 可以提出公共更好
+@media (max-width: 1250px) {
+  .story-card {
+    grid-template-columns: 1fr;
+    max-width: 768px;
+  }
+}
+
+@media (max-width: 680px) {
+  .story-l {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .story-r {
+    .top.toggle {
+      display: grid;
+    }
+    .top {
+      display: none;
+    }
+    .story-r-top,
+    .story-r-bottom {
+      grid-template-columns: 1fr;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+  }
+}
