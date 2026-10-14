@@ -16,7 +16,10 @@
   <div class="topbar">
     Get 50% off during WWDC 2026!
   </div>
-  <div class="bg"></div>
+  <div class="bg">
+    <div class="ball1"></div>
+    <div class="ball2"></div>
+  </div>
   <!-- 頭部盒子 -->
   <div class="header w">
     <a href="#" class="logo">
@@ -65,6 +68,17 @@
     </div>
     <div class="mobile-nav">
       <img src="./img/hamburger-menu.svg" alt="">
+      <div class="menu">
+        <div>
+          <a href="#">
+            <button>
+              <img src="./img/courses.svg" alt="">
+              <p>Courses</p>
+            </button>
+          </a>
+          <div class="underline"></div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -96,9 +110,139 @@
     </div>
   </div>
 
+  <!-- 精選課程 -->
+  <div class="feature">
+    <div class="feature-l">
+      <div class="details">
+        <p>FEATURED COURSE</p>
+        <div class="list">
+          <a href="#">
+            <div class="item">
+              <div class="index">1</div>
+              <div class="intro">
+                <p>Transform Your UI Design Workflow with AI</p>
+                <p>Make Your Design Process Faster and Smarter</p>
+              </div>
+              <p class="time">2:03</p>
+            </div>
+          </a>
+          <a href="#">
+            <div class="item">
+              <div class="index">2</div>
+              <div class="intro">
+                <p>Wireframing</p>
+                <p>Building the Foundation of Your UI Design and Learning About the Different Types of Wireframes: Low, Mid, and High Fidelity</p>
+              </div>
+              <p class="time">2:03</p>
+            </div>
+          </a>
+          <a href="#">
+            <div class="item">
+              <div class="index">3</div>
+              <div class="intro">
+                <p>Intro to iOS 18</p>
+                <p>Master iOS 18 design: Create stunning apps with Figma. Learn UI/UX principles, prototyping, and Apple's latest design language for mobile</p>
+              </div>
+              <p class="time">3:49</p>
+            </div>
+          </a>
+          <a href="#">
+            <div class="item">
+              <div class="index">4</div>
+              <div class="intro">
+                <p>UI Kits </p>
+                <p>Explore the best UI Kits and save time while creating unique designs</p>
+              </div>
+              <p class="time">6:30</p>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="card">
+        <figure>
+          <img src="./img/pic.png" alt="">
+          <div class="icon1">
+            <img src="./img/swiftui-logo.svg" alt="">
+          </div>
+          <div class="icon2">
+            <img src="./img/ldh.webp" alt="">
+          </div>
+        </figure>
+        <h3>Build SwiftUI apps for iOS 18 with Cursor and Xcode</h3>
+        <p>17 videos - 5 hours</p>
+        <div class="star">
+          <img src="./img/star.svg" alt="">
+        </div>
+      </div>
+    </div>
+    <div class="feature-r">
+      <div class="card">
+        <figure>
+          <img src="./img/pic.png" alt="">
+          <div class="icon1">
+            <img src="./img/swiftui-logo.svg" alt="">
+          </div>
+          <div class="icon2">
+            <img src="./img/ldh.webp" alt="">
+          </div>
+        </figure>
+        <h3>Build SwiftUI apps for iOS 18 with Cursor and Xcode</h3>
+        <p>17 videos - 5 hours</p>
+        <div class="star">
+          <img src="./img/star.svg" alt="">
+        </div>
+      </div>
+      <div class="details">
+        <p>FEATURED COURSE</p>
+        <div class="list">
+          <a href="#">
+            <div class="item">
+              <div class="index">1</div>
+              <div class="intro">
+                <p>Transform Your UI Design Workflow with AI</p>
+                <p>Make Your Design Process Faster and Smarter</p>
+              </div>
+              <p class="time">2:03</p>
+            </div>
+          </a>
+          <a href="#">
+            <div class="item">
+              <div class="index">2</div>
+              <div class="intro">
+                <p>Wireframing</p>
+                <p>Building the Foundation of Your UI Design and Learning About the Different Types of Wireframes: Low, Mid, and High Fidelity</p>
+              </div>
+              <p class="time">2:03</p>
+            </div>
+          </a>
+          <a href="#">
+            <div class="item">
+              <div class="index">3</div>
+              <div class="intro">
+                <p>Intro to iOS 18</p>
+                <p>Master iOS 18 design: Create stunning apps with Figma. Learn UI/UX principles, prototyping, and Apple's latest design language for mobile</p>
+              </div>
+              <p class="time">3:49</p>
+            </div>
+          </a>
+          <a href="#">
+            <div class="item">
+              <div class="index">4</div>
+              <div class="intro">
+                <p>UI Kits </p>
+                <p>Explore the best UI Kits and save time while creating unique designs</p>
+              </div>
+              <p class="time">6:30</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- 課程卡片 -->
   <div class="course-card">
-    <div class="item">
+    <div class="card">
       <figure>
         <img src="./img/pic.png" alt="">
         <div class="icon1">
@@ -114,7 +258,7 @@
         <img src="./img/star.svg" alt="">
       </div>
     </div>
-    <div class="item item2">
+    <div class="card card--blue">
       <figure>
         <img src="./img/pic2.png" alt="">
         <div class="icon1">
@@ -130,7 +274,7 @@
         <img src="./img/star.svg" alt="">
       </div>
     </div>
-    <div class="item item3">
+    <div class="card card--navy">
       <figure>
         <img src="./img/pic3.png" alt="">
         <div class="icon1">
@@ -146,7 +290,7 @@
         <img src="./img/star.svg" alt="">
       </div>
     </div>
-    <div class="item item4">
+    <div class="card card--coral">
       <figure>
         <img src="./img/pic4.png" alt="">
         <div class="icon1">
@@ -162,7 +306,7 @@
         <img src="./img/star.svg" alt="">
       </div>
     </div>
-    <div class="item">
+    <div class="card">
       <figure>
         <img src="./img/pic.png" alt="">
         <div class="icon1">
@@ -178,7 +322,7 @@
         <img src="./img/star.svg" alt="">
       </div>
     </div>
-    <div class="item item2">
+    <div class="card card--blue">
       <figure>
         <img src="./img/pic2.png" alt="">
         <div class="icon1">
@@ -194,7 +338,7 @@
         <img src="./img/star.svg" alt="">
       </div>
     </div>
-    <div class="item item3">
+    <div class="card card--navy">
       <figure>
         <img src="./img/pic3.png" alt="">
         <div class="icon1">
@@ -210,7 +354,7 @@
         <img src="./img/star.svg" alt="">
       </div>
     </div>
-    <div class="item item4">
+    <div class="card card--coral">
       <figure>
         <img src="./img/pic4.png" alt="">
         <div class="icon1">
@@ -226,7 +370,7 @@
         <img src="./img/star.svg" alt="">
       </div>
     </div>
-    <div class="item">
+    <div class="card">
       <figure>
         <img src="./img/pic.png" alt="">
         <div class="icon1">
@@ -242,7 +386,7 @@
         <img src="./img/star.svg" alt="">
       </div>
     </div>
-    <div class="item item2">
+    <div class="card card--blue">
       <figure>
         <img src="./img/pic2.png" alt="">
         <div class="icon1">
@@ -258,7 +402,7 @@
         <img src="./img/star.svg" alt="">
       </div>
     </div>
-    <div class="item item3">
+    <div class="card card--navy">
       <figure>
         <img src="./img/pic3.png" alt="">
         <div class="icon1">
@@ -274,7 +418,7 @@
         <img src="./img/star.svg" alt="">
       </div>
     </div>
-    <div class="item item4">
+    <div class="card card--coral">
       <figure>
         <img src="./img/pic4.png" alt="">
         <div class="icon1">
@@ -290,7 +434,7 @@
         <img src="./img/star.svg" alt="">
       </div>
     </div>
-    <div class="item">
+    <div class="card">
       <figure>
         <img src="./img/pic.png" alt="">
         <div class="icon1">
@@ -306,7 +450,7 @@
         <img src="./img/star.svg" alt="">
       </div>
     </div>
-    <div class="item item2">
+    <div class="card card--blue">
       <figure>
         <img src="./img/pic2.png" alt="">
         <div class="icon1">
@@ -322,7 +466,7 @@
         <img src="./img/star.svg" alt="">
       </div>
     </div>
-    <div class="item item3">
+    <div class="card card--navy">
       <figure>
         <img src="./img/pic3.png" alt="">
         <div class="icon1">
@@ -338,7 +482,7 @@
         <img src="./img/star.svg" alt="">
       </div>
     </div>
-    <div class="item item4">
+    <div class="card card--coral">
       <figure>
         <img src="./img/pic4.png" alt="">
         <div class="icon1">
@@ -459,6 +603,99 @@
     </div>
   </div>
 
-  
+  <!-- 底部 -->
+  <div class="footer">
+    <!-- 裁切放大後多餘部分 -->
+    <div class="slice">
+      <div class="bolang"></div>
+      <svg width="1440" height="699" viewBox="0 0 1440 699" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <clipPath id="wave2">
+            <path
+              d="M1192 63.1469C979.197 -18.7459 969.021 -3.8326 747.038 15.147C525.055 34.1266 456.426 81.6931 291.038 63.147C125.65 44.6009 38.0215 68.2247 -41.1011 88.0053C-41.1011 175.938 -41.1013 376.556 -41.1013 376.556L1481 376.556L1481 63.1469C1481 63.1469 1405.19 145.19 1192 63.1469Z"
+              fill="url(#paint0_linear)"></path>
+          </clipPath>
+        </defs>
+      </svg>
+    </div>
+    <div class="footer-con">
+      <div class="con-left">
+        <div class="item">
+          <a href="#">
+            <button>
+              <img src="./img/courses.svg" alt="">
+              <p>Courses</p>
+            </button>
+          </a>
+          <a href="#">
+            <button>
+              <img src="./img/tutorials.svg" alt="">
+              <p>Tutorials</p>
+            </button>
+          </a>
+          <a href="#">
+            <button>
+              <img src="./img/livestreams.svg" alt="">
+              <p>LiveStreams</p>
+            </button>
+          </a>
+          <a href="#">
+            <button>
+              <img src="./img/pricing.svg" alt="">
+              <p>Pricing</p>
+            </button>
+          </a>
+          <a href="#">
+            <button>
+              <img src="./img/more.svg" alt="">
+              <p>Pricing</p>
+            </button>
+          </a>
+        </div>
+        <div class="item">
+          <a href="#">
+            <button>
+              <img src="./img/courses.svg" alt="">
+              <p>Courses</p>
+            </button>
+          </a>
+          <a href="#">
+            <button>
+              <img src="./img/tutorials.svg" alt="">
+              <p>Tutorials</p>
+            </button>
+          </a>
+          <a href="#">
+            <button>
+              <img src="./img/livestreams.svg" alt="">
+              <p>LiveStreams</p>
+            </button>
+          </a>
+          <a href="#">
+            <button>
+              <img src="./img/pricing.svg" alt="">
+              <p>Pricing</p>
+            </button>
+          </a>
+          <a href="#">
+            <button>
+              <img src="./img/more.svg" alt="">
+              <p>Pricing</p>
+            </button>
+          </a>
+        </div>
+      </div>
+      <div class="con-right">
+        <p>Site made with React, Gatsby, Netlify and Contentful. Learn how.</p>
+        <p>Design+Code © 2025</p>
+        <p>Terms of Service - Privacy Policy</p>
+        <p>Need help? Contact Us</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const mobileNav = document.querySelector('.mobile-nav')
+  </script>
 </body>
 </html>

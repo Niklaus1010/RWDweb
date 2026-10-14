@@ -8,12 +8,55 @@
 }
 
 .bg {
+  overflow: hidden;
   position: absolute;
   // 讓背景直接在標準流之下，後續元素就不用一個個定位
   z-index: -1;
   width: 100%;
   height: 1200px;
   background: linear-gradient(189.16deg, rgba(57, 15, 199) 13.57%, rgba(40, 35, 77) 98.38%);
+  .ball1 {
+    position: absolute;
+    left: 200px;
+    top: 150px;
+    width: 500px;
+    height: 500px;
+    background-color: pink;
+    background: linear-gradient(rgba(47, 184, 255, 0.42) 31.77%, rgb(158, 236, 217) 100%);
+    animation: move 25s infinite alternate;
+  }
+  .ball2 {
+    position: absolute;
+    left: 200px;
+    top: 150px;
+    width: 500px;
+    height: 500px;
+    background-color: pink;
+    background: linear-gradient(rgba(186, 117, 255, 0.49) 26.56%, rgb(57, 19, 184) 100%);
+    animation: move2 30s infinite alternate;
+  }
+}
+
+@keyframes move {
+  0% {
+    transform: translate(0px, -50px) rotate(-90deg);
+    border-radius: 24% 76% 35% 65% / 27% 36% 64% 73%;
+  }
+  100% {
+    transform: translate(500px, 100px) rotate(-10deg);
+    border-radius: 76% 24% 33% 67% / 68% 55% 45% 32%;
+  }
+}
+
+@keyframes move2 {
+  0% {
+    transform: translate(-200px, 0px) rotate(-90deg);
+    border-radius: 51% 49% 58% 42% / 34% 78% 22% 66%;
+  }
+  100% {
+    transform: translate(400px, 100px) rotate(-120deg);
+    border-radius: 22% 78% 73% 27% / 67% 31% 69% 33%;
+  }
 }
 
 // 版心
@@ -119,8 +162,24 @@ $breakpoints: (
   box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 0.5px inset;
   backdrop-filter: blur(40px);
   border-radius: 50%;
+  cursor: pointer;
   @include respond-to('nav-hidden') {
     display: flex;
+  }
+  .menu {
+    position: absolute;
+    max-width: 260px;
+    margin-top: 10px;
+    padding: 20px;
+    right: 0px;
+    background: rgba(15, 14, 71, 0.3);
+    box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 0.5px inset;
+    backdrop-filter: blur(40px) brightness(80%) saturate(150%);
+    border-radius: 20px;
+    visibility: hidden;
+    opacity: 1;
+    transition: 0.8s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transform-origin: center top;
   }
 }
 
@@ -222,6 +281,182 @@ $breakpoints: (
   }
 }
 
+// course-card
+.card {
+  height: 360px;
+  background: linear-gradient(209.21deg, rgb(73, 79, 254) 13.57%, rgb(15, 19, 36) 98.38%);
+  border-radius: 20px;
+  padding: 20px;
+  transition: 0.8s cubic-bezier(0.075, 0.82, 0.165, 1);
+  cursor: pointer;
+  h3 {
+    color: #fff;
+    font-size: 24px;
+    line-height: 140%;
+    text-align: center;
+    font-weight: 600;
+    margin: 10px 0;
+    // height: 100px; 可以統一高度，看覺得哪種好看
+    // 多行顯示省略號
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+  p {
+    font-size: 15px;
+    line-height: 18px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  .star {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    margin-top: 10px;
+  }
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: rgba(15, 19, 36, 0.3) 0px 20px 40px, rgba(0, 0, 0, 0.05) 0px 1px 3px;
+    figure>img {
+      transform: scale(0.9);
+    }
+  }
+  &--blue {
+    background: linear-gradient(209.21deg, rgb(50, 150, 255) 13.57%, rgb(68, 23, 219) 98.38%);
+  }
+  &--navy {
+    background: linear-gradient(209.21deg, rgb(8, 86, 142) 13.57%, rgb(0, 24, 85) 98.38%);
+  }
+  &--coral {
+    background: linear-gradient(209.21deg, rgb(242, 136, 133) 13.57%, rgb(233, 79, 102) 98.38%);
+  }
+}
+  
+body {
+  overflow-x: hidden;
+}
+
+// 精選課程
+.feature {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  gap: 20px;
+  width: 1254px;
+  margin: 40px auto;
+  padding: 0 30px;
+  .feature-l, .feature-r {
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 20px;
+    width: 586px;
+    height: 400px;
+    padding: 20px;
+    background: rgba(15, 14, 71, 0.3);
+    box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 0.5px inset;
+    border-radius: 20px;
+    backdrop-filter: blur(40px);
+  }
+  @media (max-width: 650px) {
+    .feature-r {
+      display: none;
+    }
+  }
+}
+
+.details {
+  position: relative;
+  width: 287px;
+  height: 323px;
+  p {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  .list {
+    overflow-y: auto; // 內容超出時才需要捲動
+    -ms-overflow-style: none;  // IE / 舊版 Edge
+    scrollbar-width: none;  // Firefox
+    &::-webkit-scrollbar {
+      display: none;  // Chrome / Safari /新版 Edge
+    }
+    display: grid;
+    gap: 8px;
+    width: 287px;
+    height: 100%;
+    margin-top: 20px;
+    mask-image: linear-gradient(rgb(255, 255, 255) 80%, rgba(255, 255, 255, 0) 100%);
+  } 
+}
+
+.list .item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 46px auto;
+  gap: 10px;
+  width: 100%;
+  min-width: 220px;
+  max-width: 320px;
+  padding: 10px;
+  background-repeat: 10px;
+  .index {
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 50px;
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+  }
+  .intro {
+    display: grid;
+    gap: 8px;
+  }
+  .intro p {
+    max-width: 160px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+    padding-right: 40px;
+    /* 舊版彈性盒子布局 */
+    display: -webkit-box;
+    /* 文本垂直排列 */
+    -webkit-box-orient: vertical;
+    /* 限制顯示行數 */
+    -webkit-line-clamp: 2;
+    /* 隱藏溢出內容 */
+    overflow: hidden;
+    /* 文本溢出顯示省略號 */
+    text-overflow: ellipsis;
+  }
+  .intro p:nth-child(2){
+    max-width: none;
+    color: rgba(255, 255, 255, 0.7);
+    padding: 0;
+  }
+  .time {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 48px;
+    height: 20px;
+    font-size: 13px;
+    padding-top: 2px;
+    color: rgb(255, 255, 255);
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    text-align: center;
+  }
+}
+
 // 課程卡片
 .course-card {
   display: grid;
@@ -230,62 +465,6 @@ $breakpoints: (
   max-width: 1254px;
   margin: 40px auto 0px;
   padding: 0 40px;
-  .item {
-    height: 360px;
-    background: linear-gradient(209.21deg, rgb(73, 79, 254) 13.57%, rgb(15, 19, 36) 98.38%);
-    border-radius: 20px;
-    padding: 20px;
-    transition: 0.8s cubic-bezier(0.075, 0.82, 0.165, 1);
-    cursor: pointer;
-    h3 {
-      color: #fff;
-      font-size: 24px;
-      line-height: 140%;
-      text-align: center;
-      font-weight: 600;
-      margin: 10px 0;
-      // height: 100px; 可以統一高度，看覺得哪種好看
-      // 多行顯示省略號
-      display: -webkit-box;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-    }
-    p {
-      font-size: 15px;
-      line-height: 18px;
-      text-align: center;
-      color: rgba(255, 255, 255, 0.7);
-    }
-    .star {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 32px;
-      height: 32px;
-      margin: 0 auto;
-      background: rgba(0, 0, 0, 0.2);
-      border-radius: 50%;
-      margin-top: 10px;
-    }
-  }
-  .item:hover {
-    transform: scale(1.1);
-    box-shadow: rgba(15, 19, 36, 0.3) 0px 20px 40px, rgba(0, 0, 0, 0.05) 0px 1px 3px;
-    figure>img {
-      transform: scale(0.9);
-    }
-  }
-  .item2 {
-    background: linear-gradient(209.21deg, rgb(50, 150, 255) 13.57%, rgb(68, 23, 219) 98.38%);
-  }
-  .item3 {
-    background: linear-gradient(209.21deg, rgb(8, 86, 142) 13.57%, rgb(0, 24, 85) 98.38%);
-  }
-  .item4 {
-    background: linear-gradient(209.21deg, rgb(242, 136, 133) 13.57%, rgb(233, 79, 102) 98.38%);
-  }
 }
 
 figure {
@@ -312,6 +491,7 @@ figure {
   }
 }
 
+
 @media (max-width: 768px) {
   .course-card {
     gap: 20px;
@@ -319,12 +499,10 @@ figure {
   }
 }
 
-body {
-  height: 5000px;
-}
-
 // 故事卡片
 .story-card {
+  position: relative;
+  z-index: 999;
   display: grid;
   grid-template-columns: 1fr 1fr;
   margin-top: 20px;
@@ -362,7 +540,7 @@ body {
 .story-r>div {
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 0px 0.5px inset;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(10px);
   padding: 20px;
 }
@@ -451,5 +629,111 @@ body {
       max-width: 400px;
       margin: 0 auto;
     }
+  }
+}
+
+// 底部
+.footer {
+  position: relative;
+  width: 100%;
+  height: 800px;
+  background: rgb(30, 19, 87);
+  margin-top: 100px;
+  .slice {
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: -300px;
+    width: 100%;
+    .bolang {
+      position: absolute;
+      left: 0;
+      top: 150px;
+      width: 100%;
+      height: 600px;
+      background: linear-gradient(rgba(19, 12, 62, 0.8) 0%, rgb(30, 19, 87) 28%);
+      // 利用 svg 裁剪
+      clip-path: url(#wave2);
+    }
+    svg {
+      width: 100%;
+    }
+  }
+}
+
+@media (min-width: 1400px) {
+  .bolang {
+    transform: scale(1.5);
+  }
+}
+
+.footer-con {
+  position: absolute;
+  left: 50%;
+  top: 200px;
+  transform: translate(-50%, -50%);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  width: 660px;
+  padding: 0 20px;
+  .con-left {
+    display: grid;
+    grid-template-columns: 144px 144px;
+    gap: 20px;
+  }
+  .con-right {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 13px;
+    padding-top: 60px;
+    p:nth-child(2) {
+      margin-top: 20px;
+    }
+    p:nth-child(3) {
+      margin: 20px 0;
+      font-weight: bold;
+    }
+  }
+}
+
+.con-left .item {
+  display: grid;
+  grid-template-rows: repeat(5, 44px);
+  row-gap: 20px;
+}
+
+.con-left .item button {
+  display: flex;
+  align-items: center;
+  width: 144px;
+  height: 44px;
+  padding-left: 10px;
+  border-radius: 10px;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+  }
+  p {
+    color: #fff;
+  }
+  &:hover{
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: rgba(31, 47, 71, 0.25) 0px 20px 40px,
+    rgba(0, 0, 0, 0.1) 0px 1px 5px,
+    rgba(255, 255, 255, 0.4) 0px 0px 0px 0.5px inset,;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-con {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    // 因為父盒子寬度沒變，所以出現了水平滾動條
+    max-width: 400px;
   }
 }
