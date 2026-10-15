@@ -415,7 +415,7 @@ body {
     height: 100%;
     margin-top: 20px;
     mask-image: linear-gradient(rgb(255, 255, 255) 80%, rgba(255, 255, 255, 0) 100%);
-  } 
+  }
 }
 
 .list .item {
@@ -427,7 +427,8 @@ body {
   min-width: 220px;
   max-width: 320px;
   padding: 10px;
-  background-repeat: 10px;
+  border-radius: 10px;
+  transition: 0.8s cubic-bezier(0.075, 0.82, 0.165, 1);
   .index {
     width: 36px;
     height: 36px;
@@ -476,6 +477,10 @@ body {
     background: rgba(0, 0, 0, 0.2);
     border-radius: 5px;
     text-align: center;
+  }
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 0.5px inset;
   }
 }
 
