@@ -114,7 +114,8 @@
   }
 }
 
-.nav button {
+.nav button,
+.menu button {
   display: flex;
   padding: 10px 20px;
   background: none;
@@ -123,21 +124,25 @@
   cursor: pointer;
   transition: 0.3s ease-in-out;
 }
-.nav button:hover {
+.nav button:hover,
+.menu button:hover {
   background: rgba(255, 255, 255, 0.2);
   box-shadow: rgba(31, 47, 71, 0.25) 0px 20px 40px, rgba(0, 0, 0, 0.1) 0px 1px 5px, rgba(255, 255, 255, 0.4) 0px 0px 0px 0.5px inset;
 }
-.nav button img {
+.nav button img,
+.menu button img {
   width: 24px;
   height: 24px;
 }
-.nav button p {
+.nav button p,
+.menu button p {
   font-size: 15px;
   color: #fff;
   padding-left: 10px;
 }
 
 .mobile-nav {
+  position: relative;
   display: none;
   justify-content: center;
   align-items: center;
@@ -145,29 +150,48 @@
   height: 44px;
   background: rgba(15, 14, 71, 0.3);
   box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 0.5px inset;
-  backdrop-filter: blur(40px);
   border-radius: 50%;
   cursor: pointer;
 }
 @media (max-width: 550px) {
   .mobile-nav {
-    display: flex;
+    display: grid;
   }
 }
 .mobile-nav .menu {
   position: absolute;
   max-width: 260px;
   margin-top: 10px;
+  margin-left: -130px;
   padding: 20px;
-  right: 0px;
+  top: 40px;
+  right: 0;
   background: rgba(15, 14, 71, 0.3);
   box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 0.5px inset;
   backdrop-filter: blur(40px) brightness(80%) saturate(150%);
   border-radius: 20px;
   visibility: hidden;
-  opacity: 1;
+  opacity: 0;
   transition: 0.8s cubic-bezier(0.075, 0.82, 0.165, 1);
   transform-origin: center top;
+  transform: translateY(-10px) scale(0.95);
+}
+.mobile-nav .menu a {
+  display: block;
+}
+.mobile-nav .menu button {
+  width: 100%;
+}
+.mobile-nav .menu .line {
+  width: 180px;
+  height: 1px;
+  background: white;
+  opacity: 0.2;
+}
+.mobile-nav .menu.show {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
 .course {
@@ -615,7 +639,7 @@ figure > img {
   position: absolute;
   left: 0;
   top: 150px;
-  width: 100%;
+  width: 1522px;
   height: 600px;
   background: linear-gradient(rgba(19, 12, 62, 0.8) 0%, #1e1357 28%);
   clip-path: url(#wave2);
@@ -626,7 +650,8 @@ figure > img {
 
 @media (min-width: 1400px) {
   .bolang {
-    transform: scale(1.5);
+    transform: scalex(calc(100vw / 1440px));
+    transform-origin: left top;
   }
 }
 .footer-con {

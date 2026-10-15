@@ -76,8 +76,28 @@
               <p>Courses</p>
             </button>
           </a>
-          <div class="underline"></div>
         </div>
+        <div class="line"></div>
+        <a href="#">
+          <button>
+            <img src="./img/tutorials.svg" alt="">
+            <p>Tutorials</p>
+          </button>
+        </a>
+        <div class="line"></div>
+        <a href="#">
+          <button>
+            <img src="./img/livestreams.svg" alt="">
+            <p>LiveStreams</p>
+          </button>
+        </a>
+        <div class="line"></div>
+        <a href="#">
+          <button>
+            <img src="./img/pricing.svg" alt="">
+            <p>Pricing</p>
+          </button>
+        </a>
       </div>
     </div>
   </div>
@@ -696,6 +716,18 @@
 
   <script>
     const mobileNav = document.querySelector('.mobile-nav')
+    const menu = document.querySelector('.menu')
+
+    // 點漢堡按鈕：開／關
+    mobileNav.addEventListener('click', (e) => {
+      e.stopPropagation()          // 避免被下面的 document 點擊立刻關掉
+      menu.classList.toggle('show')
+    })
+
+    // 點頁面其他地方：關閉
+    document.addEventListener('click', () => {
+      menu.classList.remove('show')
+    })
   </script>
 </body>
 </html>

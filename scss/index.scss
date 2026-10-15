@@ -126,7 +126,8 @@ $breakpoints: (
   }
 }
 
-.nav button {
+.nav button,
+.menu button {
   display: flex;
   padding: 10px 20px;
   background: none;
@@ -153,6 +154,7 @@ $breakpoints: (
 
 .mobile-nav {
   // 隱藏盒子
+  position: relative;
   display: none;
   justify-content: center;
   align-items: center;
@@ -160,26 +162,46 @@ $breakpoints: (
   height: 44px;
   background: rgba(15, 14, 71, 0.3);
   box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 0.5px inset;
-  backdrop-filter: blur(40px);
   border-radius: 50%;
   cursor: pointer;
   @include respond-to('nav-hidden') {
-    display: flex;
+    display: grid;
   }
   .menu {
     position: absolute;
     max-width: 260px;
     margin-top: 10px;
+    margin-left: -130px;
     padding: 20px;
-    right: 0px;
+    top: 40px;
+    right: 0;
     background: rgba(15, 14, 71, 0.3);
     box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 0.5px inset;
     backdrop-filter: blur(40px) brightness(80%) saturate(150%);
     border-radius: 20px;
     visibility: hidden;
-    opacity: 1;
+    opacity: 0;
     transition: 0.8s cubic-bezier(0.075, 0.82, 0.165, 1);
     transform-origin: center top;
+    transform: translateY(-10px) scale(0.95);
+    a {
+      display: block;
+    }
+    button {
+      width: 100%;
+    }
+    .line {
+      width: 180px;
+      height: 1px;
+      background: rgb(255, 255, 255);
+      opacity: 0.2;
+    }
+    // 打開狀態
+    &.show {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
   }
 }
 
@@ -649,7 +671,7 @@ figure {
       position: absolute;
       left: 0;
       top: 150px;
-      width: 100%;
+      width: 1522px;
       height: 600px;
       background: linear-gradient(rgba(19, 12, 62, 0.8) 0%, rgb(30, 19, 87) 28%);
       // 利用 svg 裁剪
@@ -663,7 +685,8 @@ figure {
 
 @media (min-width: 1400px) {
   .bolang {
-    transform: scale(1.5);
+    transform: scalex(calc(100vw / 1440px));
+    transform-origin: left top;
   }
 }
 
